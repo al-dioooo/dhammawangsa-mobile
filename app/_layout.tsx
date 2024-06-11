@@ -2,7 +2,7 @@ import { useColorScheme } from "@/hooks/useColorScheme"
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native"
 import { SplashScreen, Stack } from "expo-router"
 
-import { Poppins_400Regular, Poppins_700Bold, useFonts } from "@expo-google-fonts/dev"
+import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, useFonts } from "@expo-google-fonts/dev"
 import { useEffect } from "react"
 
 import '@/assets/styles/global.css'
@@ -15,6 +15,8 @@ export default function RootLayout() {
 
     const [loaded] = useFonts({
         Poppins_400Regular,
+        Poppins_500Medium,
+        Poppins_600SemiBold,
         Poppins_700Bold
     })
 
@@ -31,9 +33,9 @@ export default function RootLayout() {
     return (
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
             <Stack>
-                <Stack.Screen name="index" />
-                <Stack.Screen name="login" options={{ headerShown: false, presentation: "modal" }} />
-                <Stack.Screen name="register" options={{ headerShown: false, presentation: "modal" }} />
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen name="search" options={{ headerShown: false }} />
+                <Stack.Screen name="(auth)" options={{ headerShown: false, presentation: "modal", gestureEnabled: false }} />
             </Stack>
         </ThemeProvider>
     )

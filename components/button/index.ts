@@ -1,5 +1,7 @@
 import Default from "@/components/button/default"
+import Outlined from "@/components/button/outlined"
 
 export {
-    Default as DefaultButton
+    Default as DefaultButton,
+    Outlined as OutlinedButton
 }
