@@ -35,6 +35,7 @@ export default function RootLayout() {
             <Stack>
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                 <Stack.Screen name="search" options={{ headerShown: false }} />
+                <Stack.Screen name="detail" options={{ headerShown: false }} />
                 <Stack.Screen name="(auth)" options={{ headerShown: false, presentation: "modal", gestureEnabled: false }} />
             </Stack>
         </ThemeProvider>

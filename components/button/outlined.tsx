@@ -15,7 +15,7 @@ export default function Default({ children, ...rest }: Props) {
             }
         }, [])
 
-        return <MotiView className="flex items-center p-3 border border-neutral-200 dark:border-neutral-800 rounded-full" children={children} state={state} />
+        return <MotiView className="flex items-center p-3 bg-white border rounded-full border-neutral-200 dark:border-neutral-800 dark:bg-black" children={children} state={state} />
     }
 
     return (
