@@ -2,12 +2,16 @@ import LineInMotionSVG from "@/components/graphics/line-in-motion"
 import { DefaultPill } from "@/components/pill"
 import { tailwind } from "@/references/tailwind"
 import { useState } from "react"
-import { Dimensions, FlatList, RefreshControl, ScrollView, Text, View } from "react-native"
+import { Dimensions, FlatList, RefreshControl, ScrollView, Text, TouchableOpacity, View } from "react-native"
 
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs"
 import { IconBoxSeam, IconInfoCircle, IconPencil } from "@tabler/icons-react-native"
+import { router } from "expo-router"
+import { useColorScheme } from "@/hooks/useColorScheme"
 
 export default function User() {
+    const colorScheme = useColorScheme()
+
     const tabBarHeight = useBottomTabBarHeight()
 
     const [isRefreshing, setIsRefreshing] = useState<boolean>(false)
@@ -38,34 +42,34 @@ export default function User() {
                     </View>
                     <View className="justify-between">
                         <View>
-                            <Text className="text-xl font-semibold">Alice Evergarden</Text>
+                            <Text className="text-xl font-semibold dark:text-white">Alice Evergarden</Text>
                             <Text className="text-sm text-neutral-500">+XX XXXX XXXX XXXX</Text>
                         </View>
                         <Text className="text-sm text-neutral-500">No pending order available</Text>
                     </View>
                 </View>
 
-                <View className="w-full h-[1] bg-neutral-100"></View>
+                <View className="w-full h-[1] bg-neutral-100 dark:bg-neutral-900"></View>
 
                 <View className="gap-y-4">
                     <View className="flex-row items-center gap-x-4">
-                        <View className="p-2 rounded-full bg-neutral-200">
-                            <IconPencil strokeWidth={1.5} width={20} height={20} color={tailwind.colors.black} />
+                        <View className="p-2 rounded-full bg-neutral-200 dark:bg-neutral-800">
+                            <IconPencil strokeWidth={1.5} width={20} height={20} color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} />
                         </View>
-                        <Text>Edit Profile</Text>
+                        <Text className="dark:text-white">Edit Profile</Text>
                     </View>
-                    <View className="flex-row items-center gap-x-4">
-                        <View className="p-2 rounded-full bg-neutral-200">
-                            <IconBoxSeam strokeWidth={1.5} width={20} height={20} color={tailwind.colors.black} />
+                    <TouchableOpacity onPress={() => router.push('/(order)/not-paid')} className="flex-row items-center gap-x-4">
+                        <View className="p-2 rounded-full bg-neutral-200 dark:bg-neutral-800">
+                            <IconBoxSeam strokeWidth={1.5} width={20} height={20} color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} />
                         </View>
-                        <Text>Your Order</Text>
-                    </View>
-                    <View className="flex-row items-center gap-x-4">
-                        <View className="p-2 rounded-full bg-neutral-200">
-                            <IconInfoCircle strokeWidth={1.5} width={20} height={20} color={tailwind.colors.black} />
+                        <Text className="dark:text-white">Your Order</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => router.push('/info')} className="flex-row items-center gap-x-4">
+                        <View className="p-2 rounded-full bg-neutral-200 dark:bg-neutral-800">
+                            <IconInfoCircle strokeWidth={1.5} width={20} height={20} color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} />
                         </View>
-                        <Text>App Information</Text>
-                    </View>
+                        <Text className="dark:text-white">App Information</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </ScrollView>
