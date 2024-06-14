@@ -1,8 +1,8 @@
 import { DefaultButton } from "@/components/button"
 import Input from "@/components/forms/input"
 import { AuthLayout } from "@/components/layouts/auth-layout"
-import { Link } from "expo-router"
-import { Text, View } from "react-native"
+import { Link, router } from "expo-router"
+import { Text, TouchableOpacity, View } from "react-native"
 
 export default function Register() {
     return (
@@ -39,14 +39,14 @@ export default function Register() {
                     </DefaultButton>
                 </View>
 
-                <Text className="font-sans text-center dark:text-white">Already have an account? <Link href="/login" className="font-sans font-bold text-red-500">Sign in</Link></Text>
+                <Text className="font-sans text-center dark:text-white">Already have an account? <Link href="/login" replace className="font-sans font-bold text-red-500">Sign in</Link></Text>
                 <View className="flex-row items-center">
                     <View className="flex-1 h-[1] bg-neutral-300 dark:bg-neutral-700" />
                     <View className="absolute inset-x-0 items-center">
                         <Text className="px-4 font-sans bg-white text-neutral-300 dark:bg-black dark:text-neutral-700">OR</Text>
                     </View>
                 </View>
-                <Link href="/" className="font-sans font-bold text-center text-red-500">Continue as Guest</Link>
+                <TouchableOpacity onPress={() => router.back()}><Text className="font-sans font-bold text-center text-red-500">Continue as Guest</Text></TouchableOpacity>
             </View>
         </AuthLayout>
     )
