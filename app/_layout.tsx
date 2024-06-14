@@ -6,6 +6,7 @@ import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700
 import { useEffect } from "react"
 
 import '@/assets/styles/global.css'
+import SimpleHeader from "@/components/layouts/simple-header"
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync()
@@ -36,6 +37,8 @@ export default function RootLayout() {
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                 <Stack.Screen name="search" options={{ headerShown: false }} />
                 <Stack.Screen name="detail" options={{ headerShown: false }} />
+                <Stack.Screen name="info" options={{ title: process.env.EXPO_PUBLIC_APP_NAME, header: (props) => <SimpleHeader title={props.options.title} subtitle={'v' + process.env.EXPO_PUBLIC_APP_VERSION} /> }} />
+                <Stack.Screen name="(order)" options={{ title: "Your Order", header: (props) => <SimpleHeader title={props.options.title} /> }} />
                 <Stack.Screen name="(auth)" options={{ headerShown: false, presentation: "modal", gestureEnabled: false }} />
             </Stack>
         </ThemeProvider>

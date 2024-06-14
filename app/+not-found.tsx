@@ -13,6 +13,9 @@ export default function NotFoundScreen() {
                 <Link href="/" style={styles.link}>
                     <ThemedText type="link">Go to home screen!</ThemedText>
                 </Link>
+                <Link href="/_sitemap" style={styles.link}>
+                    <ThemedText type="link">See route list</ThemedText>
+                </Link>
             </ThemedView>
         </>
     )
