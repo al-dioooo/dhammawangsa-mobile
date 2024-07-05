@@ -8,24 +8,19 @@ import { FlatList, Pressable, RefreshControl, Text, View } from "react-native"
 
 const data = [
     {
-        id: "ORD_20240612",
-        date: "2024-06-12",
+        id: "ORD_20240613",
+        date: "2024-06-13",
         items: [
             {
                 name: "Something",
                 price: 30000,
                 quantity: 2
-            },
-            {
-                name: "A Piece of Cake",
-                price: 45000,
-                quantity: 1
             }
         ]
     }
 ]
 
-export default function NotPaid() {
+export default function Completed() {
     const [isRefreshing, setIsRefreshing] = useState<boolean>(false)
 
     const onRefresh = () => {

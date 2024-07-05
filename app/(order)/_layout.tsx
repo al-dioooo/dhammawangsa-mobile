@@ -12,6 +12,8 @@ export default function TopTabLayout() {
         <MaterialTopTabs tabBar={(props) => <TopTabBar {...props} />} screenOptions={{ lazy: true }}>
             <MaterialTopTabs.Screen name="not-paid" options={{ title: "Not Paid" }} />
             <MaterialTopTabs.Screen name="to-ship" options={{ title: "To Ship" }} />
+            <MaterialTopTabs.Screen name="arrived" options={{ title: "Arrived" }} />
+            <MaterialTopTabs.Screen name="completed" options={{ title: "Completed" }} />
         </MaterialTopTabs>
     )
 }

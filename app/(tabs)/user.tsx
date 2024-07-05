@@ -8,6 +8,7 @@ import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs"
 import { IconBoxSeam, IconInfoCircle, IconPencil } from "@tabler/icons-react-native"
 import { router } from "expo-router"
 import { useColorScheme } from "@/hooks/useColorScheme"
+import Separator from "@/components/separator"
 
 export default function User() {
     const colorScheme = useColorScheme()
@@ -49,7 +50,7 @@ export default function User() {
                     </View>
                 </View>
 
-                <View className="w-full h-[1] bg-neutral-100 dark:bg-neutral-900"></View>
+                <Separator />
 
                 <View className="gap-y-4">
                     <View className="flex-row items-center gap-x-4">

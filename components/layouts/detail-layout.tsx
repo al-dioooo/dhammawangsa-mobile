@@ -12,12 +12,12 @@ type Props = PropsWithChildren<{
 const items = [
     {
         options: {
-            icon: () => (
-                <IconShoppingBag strokeWidth={1.5} size={28} color={tailwind.colors.white} />
+            icon: (props: any) => (
+                <IconShoppingBag strokeWidth={1.5} size={28} {...props} />
             ),
             tintColor: tailwind.colors.white
         },
-        isActive: true
+        isActive: false
     }
 ]
 

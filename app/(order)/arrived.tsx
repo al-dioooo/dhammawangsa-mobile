@@ -25,7 +25,7 @@ const data = [
     }
 ]
 
-export default function NotPaid() {
+export default function Arrived() {
     const [isRefreshing, setIsRefreshing] = useState<boolean>(false)
 
     const onRefresh = () => {

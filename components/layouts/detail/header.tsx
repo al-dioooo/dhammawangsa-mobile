@@ -19,10 +19,10 @@ export default function Header(props: NativeStackNavigatorProps) {
             {/* @ts-ignore */}
             <MotiView transition={{ type: "spring", damping: 20 }} className="flex-row items-center justify-between w-full">
                 <OutlinedButton onPress={() => router.back()}>
-                    <IconChevronLeft size={24} color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} />
+                    <IconChevronLeft size={24} strokeWidth={1.5} color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} />
                 </OutlinedButton>
                 <OutlinedButton onPress={() => { }}>
-                    <IconShoppingBag size={24} color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} />
+                    <IconShoppingBag size={24} strokeWidth={1.5} color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} />
                 </OutlinedButton>
             </MotiView>
         </MotiView>

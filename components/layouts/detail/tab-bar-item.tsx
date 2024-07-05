@@ -32,7 +32,7 @@ export default function TabBarItem({ badge, focused, children, ...rest }: Props)
     return (
         <View className="pointer-events-none">
             {badge && (<Badge badge={badge} />)}
-            <Animated.View style={[focused ? animatedStyle : {}]} className={`${focused ? 'bg-red-500 shadow-lg shadow-red-500/50' : ''} p-3 rounded-full`} {...rest}>{children}</Animated.View>
+            <Animated.View style={[focused ? animatedStyle : {}]} className={`${focused ? 'bg-red-500 shadow-lg shadow-red-500/50' : 'border border-neutral-200 dark:border-neutral-800'} p-3 rounded-full`} {...rest}>{children}</Animated.View>
         </View>
     )
 }

@@ -38,7 +38,9 @@ export default function RootLayout() {
                 <Stack.Screen name="search" options={{ headerShown: false }} />
                 <Stack.Screen name="detail" options={{ headerShown: false }} />
                 <Stack.Screen name="info" options={{ title: process.env.EXPO_PUBLIC_APP_NAME, header: (props) => <SimpleHeader title={props.options.title} subtitle={'v' + process.env.EXPO_PUBLIC_APP_VERSION} /> }} />
+                <Stack.Screen name="checkout" options={{ title: "Order Summary", header: (props) => <SimpleHeader title={props.options.title} /> }} />
                 <Stack.Screen name="(order)" options={{ title: "Your Order", header: (props) => <SimpleHeader title={props.options.title} /> }} />
+                <Stack.Screen name="order-detail" options={{ title: "Order Detail", header: (props) => <SimpleHeader title={props.options.title} /> }} />
                 <Stack.Screen name="(auth)" options={{ headerShown: false, presentation: "modal", gestureEnabled: false }} />
             </Stack>
         </ThemeProvider>

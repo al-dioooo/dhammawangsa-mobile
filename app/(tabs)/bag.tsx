@@ -15,7 +15,7 @@ const data = [
 
         items: [
             {
-                name: "Donation",
+                name: "Something",
                 price: 30000,
                 quantity: 2
             }
@@ -27,7 +27,7 @@ const data = [
 
         items: [
             {
-                name: "Donation",
+                name: "Something",
                 price: 30000,
                 quantity: 2
             },

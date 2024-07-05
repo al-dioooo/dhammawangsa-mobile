@@ -4,6 +4,7 @@ import TabBarItem from "@/components/layouts/detail/tab-bar-item"
 import TabBarButton from "@/components/layouts/detail/tab-bar-button"
 import { View, StyleSheet } from "react-native"
 import { useColorScheme } from "@/hooks/useColorScheme"
+import { tailwind } from "@/references/tailwind"
 
 export default function TabBar({ items }: { items: any }) {
     const colorScheme = useColorScheme()
@@ -57,7 +58,7 @@ export default function TabBar({ items }: { items: any }) {
             {items.map((row: any, index: number) => {
                 const { options, isActive } = row
 
-                const TabBarIcon = (props: any) => (<options.icon color={options.tintColor} focused={isActive} {...props} />)
+                const TabBarIcon = (props: any) => (<options.icon color={colorScheme === 'dark' ? tailwind.colors.white : tailwind.colors.black} {...props} />)
 
                 return (
                     <TabBarItem key={index} badge={options.tabBarBadge} focused={isActive}>
