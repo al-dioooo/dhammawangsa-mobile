@@ -3,7 +3,7 @@ import { BlurView } from "expo-blur"
 import Animated, { SensorType, useAnimatedSensor, useAnimatedStyle, withSpring } from "react-native-reanimated"
 import TabBarItem from "@/components/layouts/main/tab-bar-item"
 import TabBarButton from "@/components/layouts/main/tab-bar-button"
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, Platform } from "react-native"
 import { useColorScheme } from "@/hooks/useColorScheme"
 
 export default function TabBar({ state, descriptors, navigation }: { state: any, descriptors: any, navigation: any }) {
@@ -12,10 +12,10 @@ export default function TabBar({ state, descriptors, navigation }: { state: any,
 
     const animatedStyle = useAnimatedStyle(() => {
         return {
-            transform: [
-                { translateY: withSpring(gyroscope.sensor.value.x, { damping: 20 }) },
-                { translateX: withSpring(gyroscope.sensor.value.y, { damping: 20 }) }
-            ]
+            // transform: [
+            //     { translateY: withSpring(gyroscope.sensor.value.x, { damping: 20 }) },
+            //     { translateX: withSpring(gyroscope.sensor.value.y, { damping: 20 }) }
+            // ]
         }
     })
 
@@ -26,8 +26,8 @@ export default function TabBar({ state, descriptors, navigation }: { state: any,
     }
 
     return (
-        <Animated.View style={[animatedStyle, { elevation: 5 }]} className="absolute flex-row justify-between items-center h-[64] p-3 rounded-full inset-x-6 bottom-6 shadow-2xl">
-            <TabBarBackground />
+        <Animated.View style={[animatedStyle, { elevation: 5 }]} className={`${true ? 'bg-white dark:bg-black' : ''} absolute flex-row justify-between items-center h-[64] p-3 rounded-full inset-x-6 bottom-6 shadow-2xl`}>
+            {false && (<TabBarBackground />)}
 
             {/* Tab Bar Button */}
             <View style={{ ...StyleSheet.absoluteFillObject, flexDirection: "row" }}>

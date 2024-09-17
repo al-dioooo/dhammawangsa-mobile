@@ -21,7 +21,7 @@ export default function TabBarItem({ badge, focused, children, ...rest }: Props)
 
     const Badge = ({ badge }: { badge: string | number | null | undefined }) => {
         return (
-            <Animated.View style={[focused ? animatedStyle : {}]} className="absolute -top-1 left-10 z-10">
+            <Animated.View style={[focused ? animatedStyle : {}]} className="absolute z-10 -top-1 left-10">
                 <View className={`${focused ? 'bg-white' : 'bg-red-500'} px-1 min-w-6 h-6 items-center justify-center rounded-full`}>
                     <Text className={`${focused ? 'text-red-500' : 'text-white'}`}>{badge}</Text>
                 </View>

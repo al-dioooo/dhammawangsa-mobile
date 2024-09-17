@@ -1,7 +1,7 @@
 import LineInMotionSVG from "@/components/graphics/line-in-motion"
 import { DefaultPill } from "@/components/pill"
 import { tailwind } from "@/references/tailwind"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { Dimensions, FlatList, RefreshControl, ScrollView, Text, View } from "react-native"
 
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs"
@@ -22,6 +22,20 @@ export default function Index() {
         }, 1000)
     }
 
+    const renderItem = useCallback(({ item }: { item: any }) => (
+        <View key={item} style={{ width: itemSize }} className="my-4 gap-y-2">
+            <View style={{ borderCurve: "continuous" }} className="p-1 shadow-md shadow-neutral-300 dark:shadow-neutral-800 bg-white dark:bg-black rounded-[25]">
+                <View style={{ borderCurve: "continuous", width: "auto" }} className="overflow-hidden bg-red-500 aspect-square rounded-3xl">
+                    <LineInMotionSVG color={tailwind.colors.red[300]} />
+                </View>
+            </View>
+            <View className="ml-4">
+                <Text className="font-sans text-lg font-semibold dark:text-white">{Intl.NumberFormat('id-Id', { style: 'currency', currency: "IDR" }).format(10000)}</Text>
+                <Text className="font-sans text-sm text-neutral-500">Product Name</Text>
+            </View>
+        </View>
+    ), [])
+
     const screenWidth = Dimensions.get('window').width
     const numColumns = 2
     const gap = 16
@@ -36,10 +50,10 @@ export default function Index() {
                 <View>
                     {/* Background */}
                     <View className="absolute inset-x-2 inset-y-0 bg-neutral-100 dark:bg-neutral-900 rounded-[26]"></View>
-                    <ScrollView style={{ borderCurve: "continuous" }} horizontal={true} className="px-6 pt-2 pb-4 mt-2 overflow-visible">
+                    <ScrollView style={{ borderCurve: "continuous" }} horizontal={true} contentContainerClassName="px-6 pt-2 pb-4 mt-2 overflow-visible gap-x-4">
                         {[...Array(4)].map((row, index) => (
                             <Link href="/detail" key={index}>
-                                <View className="mr-4 gap-y-2">
+                                <View className="gap-y-2">
                                     <View style={{ borderCurve: "continuous" }} className="p-1 shadow-md shadow-neutral-300 dark:shadow-neutral-800 bg-white dark:bg-black rounded-[25]">
                                         <View style={{ borderCurve: "continuous" }} className="w-[168] h-[168] bg-red-500 rounded-3xl overflow-hidden">
                                             <LineInMotionSVG color={tailwind.colors.red[300]} />
@@ -67,19 +81,7 @@ export default function Index() {
                     ))}
                 </ScrollView>
                 <View>
-                    <FlatList className="px-6" numColumns={numColumns} columnWrapperStyle={{ gap }} data={[...Array(12)]} renderItem={({ item }) => (
-                        <View key={item} style={{ width: itemSize }} className="my-4 gap-y-2">
-                            <View style={{ borderCurve: "continuous" }} className="p-1 shadow-md shadow-neutral-300 dark:shadow-neutral-800 bg-white dark:bg-black rounded-[25]">
-                                <View style={{ borderCurve: "continuous", width: "auto" }} className="overflow-hidden bg-red-500 aspect-square rounded-3xl">
-                                    <LineInMotionSVG color={tailwind.colors.red[300]} />
-                                </View>
-                            </View>
-                            <View className="ml-4">
-                                <Text className="font-sans text-lg font-semibold dark:text-white">{Intl.NumberFormat('id-Id', { style: 'currency', currency: "IDR" }).format(10000)}</Text>
-                                <Text className="font-sans text-sm text-neutral-500">Product Name</Text>
-                            </View>
-                        </View>
-                    )} />
+                    <FlatList className="px-6" numColumns={numColumns} columnWrapperStyle={{ gap }} data={[...Array(12)]} renderItem={renderItem} />
                 </View>
             </View>
         </ScrollView>

@@ -2,7 +2,7 @@ import { useColorScheme } from "@/hooks/useColorScheme"
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native"
 import { SplashScreen, Stack } from "expo-router"
 
-import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, useFonts } from "@expo-google-fonts/dev"
+import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, useFonts } from "@expo-google-fonts/poppins"
 import { useEffect } from "react"
 
 import '@/assets/styles/global.css'
